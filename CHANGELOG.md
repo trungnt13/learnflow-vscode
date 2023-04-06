@@ -52,8 +52,8 @@
 
 ### Added
 
-- New templates: document code, improve readability, and two fun templates (drunken pirate and code sonnet). They are available via the "Rubberduck: Start Custom Chat..." command.
-- Rubberduck templates: `tag` support.
+- New templates: document code, improve readability, and two fun templates (drunken pirate and code sonnet). They are available via the "Learnflow: Start Custom Chat..." command.
+- Learnflow templates: `tag` support.
 - Edit code toolbar button in the chat panel.
 
 ### Changed
@@ -65,7 +65,7 @@
 ### Added
 
 - Basic extension mechanism. Other extensions can add new conversation types and use the
-  "rubberduck.startConversation" command.
+  "learnflow.startConversation" command.
 
 ### Changed
 
@@ -101,7 +101,7 @@
 
 ### Changed
 
-- **Breaking**. Rubberduck Templates: Changed variable 'activeEditor' into several new variables and removed it.
+- **Breaking**. Learnflow Templates: Changed variable 'activeEditor' into several new variables and removed it.
 
 ### Fixed
 
@@ -112,14 +112,14 @@
 ### Changed
 
 - In instruction fields, enter creates a newlines. Shift+Enter or Ctrl+Enter submits the instructions. In messages, enter submits the message.
-- **Breaking**. Rubberduck Templates: Removed `type` property and related fields. Introduced `initialMessage` and `response` properties that contain flattened prompt and additional information.
+- **Breaking**. Learnflow Templates: Removed `type` property and related fields. Introduced `initialMessage` and `response` properties that contain flattened prompt and additional information.
 
 ## 1.8.0 - 2023-02-10
 
 ### Added
 
 - Shortcut `Ctrl + Cmd + G` (Mac) or `Ctrl + Alt + G` (Windows / Linux) to generate code.
-- Rubberduck Templates: "chatInterface" property for conversation templates.
+- Learnflow Templates: "chatInterface" property for conversation templates.
 
 ### Changed
 
@@ -150,14 +150,14 @@
 ### Added
 
 - Notification when you reload your workspace templates.
-- Rubberduck Templates: "active-editor-diff" completion handler.
+- Learnflow Templates: "active-editor-diff" completion handler.
 
 ## 1.6.0 - 2023-02-09
 
 ### Added
 
 - "Generate code" action
-- Rubberduck Templates: "completionHandler" configuration
+- Learnflow Templates: "completionHandler" configuration
 
 ### Fixed
 
@@ -198,29 +198,29 @@
 
 ### Changed
 
-- **Breaking**. The Rubberduck Conversation format has changed in large parts. [Check the updated docs](https://github.com/rubberduck-ai/rubberduck-vscode/blob/main/doc/rubberduck-templates.md) for Rubberduck Templates.
+- **Breaking**. The Learnflow Conversation format has changed in large parts. [Check the updated docs](https://github.com/trungnt13/learnflow-vscode/blob/main/doc/learnflow-templates.md) for Learnflow Templates.
 
 ## 1.2.0 - 2023-02-03
 
 ### Changed
 
-- **Breaking**. The `codicon` attribute is now an `icon` property. [Check the updated docs](https://github.com/rubberduck-ai/rubberduck-vscode/blob/main/doc/rubberduck-templates.md) for Rubberduck Templates.
+- **Breaking**. The `codicon` attribute is now an `icon` property. [Check the updated docs](https://github.com/trungnt13/learnflow-vscode/blob/main/doc/learnflow-templates.md) for Learnflow Templates.
 
 ### Added
 
 - New `selected-code-analysis-chat` template format. It analyzes a code selection, then starts a conversation. Use-case example:
-  - [Improve readability](https://github.com/rubberduck-ai/rubberduck-vscode/tree/main/.rubberduck/template/improve-readability.json)
-  - [Find bugs](https://github.com/rubberduck-ai/rubberduck-vscode/tree/main/.rubberduck/template/find-bugs.json)
-- New optional `isEnabled` flag, so you can disable a Rubberduck Template you are still working on.
+  - [Improve readability](https://github.com/trungnt13/learnflow-vscode/tree/main/.learnflow/template/improve-readability.json)
+  - [Find bugs](https://github.com/trungnt13/learnflow-vscode/tree/main/.learnflow/template/find-bugs.json)
+- New optional `isEnabled` flag, so you can disable a Learnflow Template you are still working on.
 
 ## 1.1.0 - 2023-02-02
 
 ### Added
 
-- Add your own custom Rubberduck Templates by adding `.json` files to the `.rubberduck/template` folder in your workspace.
-- The "Rubberduck: Reload Templates" command reloads the conversation types. You can use it after you modified or added custom conversations in your workspace.
-- Prompts are logged and can be inspected in the output tab. The "Rubberduck: Show Logs" shows the Rubberduck output tab.
-- The "Rubberduck: Start Custom Chat… 💬" command allows you to select a chat from a list of available options. It includes custom conversation types.
+- Add your own custom Learnflow Templates by adding `.json` files to the `.learnflow/template` folder in your workspace.
+- The "Learnflow: Reload Templates" command reloads the conversation types. You can use it after you modified or added custom conversations in your workspace.
+- Prompts are logged and can be inspected in the output tab. The "Learnflow: Show Logs" shows the Learnflow output tab.
+- The "Learnflow: Start Custom Chat… 💬" command allows you to select a chat from a list of available options. It includes custom conversation types.
 
 ## 1.0.1 - 2023-02-01
 

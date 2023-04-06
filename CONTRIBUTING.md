@@ -1,4 +1,4 @@
-# Contributing to Rubberduck
+# Contributing to Learnflow
 
 First of all, thank you for taking some of your time to contribute to the project. You're awesome 🦆👍
 
@@ -14,8 +14,8 @@ First of all, thank you for taking some of your time to contribute to the projec
 
 > Pre-requisite: you have installed [git][install-git], [node][install-node] and [pnpm][install-pnpm].
 
-1. Clone the repo: `git clone git@github.com:rubberduck-ai/rubberduck-vscode.git`
-1. Go into the cloned repository: `cd rubberduck-vscode`
+1. Clone the repo: `git clone git@github.com:trungnt13/learnflow-vscode.git`
+1. Go into the cloned repository: `cd learnflow-vscode`
 1. Install dependencies: `pnpm install`
 1. Build the extension: `pnpm build-all`
 
@@ -36,7 +36,7 @@ To build the project, press `F5`. It should run the `run - app/vscode` task.
 This will:
 
 1. Build the project
-2. Open a new "Extension Development Host" VS Code window, with your local code overriding your "Rubberduck" extension
+2. Open a new "Extension Development Host" VS Code window, with your local code overriding your "Learnflow" extension
 
 It's handy to test your changes in integration with VS Code API.
 

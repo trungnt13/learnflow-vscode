@@ -1,11 +1,11 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@learnflow/common";
 import * as vscode from "vscode";
 import { ApiKeyManager } from "../openai/ApiKeyManager";
 import { WebviewContainer } from "../webview/WebviewContainer";
 import { ChatModel } from "./ChatModel";
 
 export class ChatPanel implements vscode.WebviewViewProvider {
-  public static readonly id = "rubberduck.chat";
+  public static readonly id = "learnflow.chat";
 
   private readonly disposables: vscode.Disposable[] = [];
 

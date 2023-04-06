@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import { ConversationType } from "./ConversationType";
-import { loadConversationFromFile } from "./template/loadRubberduckTemplateFromFile";
-import { loadRubberduckTemplatesFromWorkspace } from "./template/loadRubberduckTemplatesFromWorkspace";
-import { parseRubberduckTemplate } from "./template/parseRubberduckTemplate";
+import { loadConversationFromFile } from "./template/loadLearnflowTemplateFromFile";
+import { loadLearnflowTemplatesFromWorkspace } from "./template/loadLearnflowTemplatesFromWorkspace";
+import { parseLearnflowTemplate } from "./template/parseLearnflowTemplate";
 
 export class ConversationTypesProvider {
   private readonly extensionUri: vscode.Uri;
@@ -72,7 +72,7 @@ export class ConversationTypesProvider {
   private loadExtensionTemplates() {
     for (const templateText of this.extensionTemplates) {
       try {
-        const result = parseRubberduckTemplate(templateText);
+        const result = parseLearnflowTemplate(templateText);
 
         if (result.type === "error") {
           vscode.window.showErrorMessage("Could not load extension template");
@@ -95,7 +95,7 @@ export class ConversationTypesProvider {
 
   private async loadWorkspaceTemplates() {
     const workspaceTemplateLoadingResults =
-      await loadRubberduckTemplatesFromWorkspace();
+      await loadLearnflowTemplatesFromWorkspace();
     for (const loadingResult of workspaceTemplateLoadingResults) {
       if (loadingResult.type === "error") {
         vscode.window.showErrorMessage(

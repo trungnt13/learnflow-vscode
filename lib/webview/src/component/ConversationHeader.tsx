@@ -1,4 +1,4 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@learnflow/common";
 import React from "react";
 
 export const ConversationHeader: React.FC<{

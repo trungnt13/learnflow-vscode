@@ -1,8 +1,8 @@
 {
-  "publisher": "rubberduck",
-  "name": "rubberduck-vscode",
+  "publisher": "learnflow",
+  "name": "learnflow-vscode",
   "version": "1.15.0",
-  "displayName": "Rubberduck - ChatGPT for Visual Studio Code",
+  "displayName": "Learnflow - ChatGPT for Visual Studio Code",
   "description": "Generate code, edit code, explain code, generate tests, find bugs, diagnose errors, and even create your own conversation templates.",
   "keywords": [
     "ai",
@@ -31,9 +31,9 @@
   "engines": {
     "vscode": "^1.72.0"
   },
-  "homepage": "https://github.com/rubberduck-ai/rubberduck-vscode",
-  "repository": "https://github.com/rubberduck-ai/rubberduck-vscode",
-  "bugs": "https://github.com/rubberduck-ai/rubberduck-vscode/issues",
+  "homepage": "https://github.com/trungnt13/learnflow-vscode",
+  "repository": "https://github.com/trungnt13/learnflow-vscode",
+  "bugs": "https://github.com/trungnt13/learnflow-vscode/issues",
   "extensionKind": [
     "workspace"
   ],
@@ -44,157 +44,157 @@
   "contributes": {
     "commands": [
       {
-        "command": "rubberduck.enterOpenAIApiKey",
-        "category": "Rubberduck",
+        "command": "learnflow.enterOpenAIApiKey",
+        "category": "Learnflow",
         "title": "Enter OpenAI API key"
       },
       {
-        "command": "rubberduck.clearOpenAIApiKey",
-        "category": "Rubberduck",
+        "command": "learnflow.clearOpenAIApiKey",
+        "category": "Learnflow",
         "title": "Clear OpenAI API key"
       },
       {
-        "command": "rubberduck.startChat",
+        "command": "learnflow.startChat",
         "title": "Start Chat 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "learnflow.editCode",
         "title": "Edit Code 🖊️",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(edit)"
       },
       {
-        "command": "rubberduck.explainCode",
+        "command": "learnflow.explainCode",
         "title": "Explain Code 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "learnflow.generateCode",
         "title": "Generate Code 🪄",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(wand)"
       },
       {
-        "command": "rubberduck.generateUnitTest",
+        "command": "learnflow.generateUnitTest",
         "title": "Generate Unit Test 🪄",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(beaker)"
       },
       {
-        "command": "rubberduck.diagnoseErrors",
+        "command": "learnflow.diagnoseErrors",
         "title": "Diagnose Errors 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(search-fuzzy)"
       },
       {
-        "command": "rubberduck.findBugs",
+        "command": "learnflow.findBugs",
         "title": "Find Bugs 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(bug)"
       },
       {
-        "command": "rubberduck.startCustomChat",
+        "command": "learnflow.startCustomChat",
         "title": "Start Custom Chat… 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(comment-draft)"
       },
       {
-        "command": "rubberduck.touchBar.startChat",
-        "category": "Rubberduck",
+        "command": "learnflow.touchBar.startChat",
+        "category": "Learnflow",
         "title": "💬"
       },
       {
-        "command": "rubberduck.showChatPanel",
+        "command": "learnflow.showChatPanel",
         "title": "Show Chat Panel 💬",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.getStarted",
+        "command": "learnflow.getStarted",
         "title": "Get Started",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(question)"
       },
       {
-        "command": "rubberduck.reloadTemplates",
+        "command": "learnflow.reloadTemplates",
         "title": "Reload Templates",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(sync)"
       },
       {
-        "command": "rubberduck.showLogs",
+        "command": "learnflow.showLogs",
         "title": "Show Logs",
-        "category": "Rubberduck",
+        "category": "Learnflow",
         "icon": "$(output)"
       },
       {
-        "command": "rubberduck.indexRepository",
+        "command": "learnflow.indexRepository",
         "title": "Index Repository",
-        "category": "Rubberduck",
-        "enablement": "config.rubberduck.indexRepository.enabled"
+        "category": "Learnflow",
+        "enablement": "config.learnflow.indexRepository.enabled"
       }
     ],
     "configuration": {
-      "title": "Rubberduck",
+      "title": "Learnflow",
       "properties": {
-        "rubberduck.syntaxHighlighting.useVisualStudioCodeColors": {
+        "learnflow.syntaxHighlighting.useVisualStudioCodeColors": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Use the Visual Studio Code Theme colors for syntax highlighting in the diff viewer. Might not work with all themes. Only applies to newly opened diffs.",
           "scope": "application"
         },
-        "rubberduck.indexRepository.enabled": {
+        "learnflow.indexRepository.enabled": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Enable the command to index your repository and give more context to the AI model. Experimental.",
           "scope": "application"
         },
-        "rubberduck.action.editCode.showInEditorContextMenu": {
+        "learnflow.action.editCode.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.startChat.showInEditorContextMenu": {
+        "learnflow.action.startChat.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.explainCode.showInEditorContextMenu": {
+        "learnflow.action.explainCode.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.findBugs.showInEditorContextMenu": {
+        "learnflow.action.findBugs.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.generateUnitTest.showInEditorContextMenu": {
+        "learnflow.action.generateUnitTest.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.diagnoseErrors.showInEditorContextMenu": {
+        "learnflow.action.diagnoseErrors.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.startCustomChat.showInEditorContextMenu": {
+        "learnflow.action.startCustomChat.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.logger.level": {
+        "learnflow.logger.level": {
           "type": "string",
           "default": "info",
           "enum": [
@@ -209,16 +209,16 @@
             "Only show warnings and errors",
             "Only show errors"
           ],
-          "markdownDescription": "Specify the verbosity of logs that will appear in 'Rubberduck: Show Logs'.",
+          "markdownDescription": "Specify the verbosity of logs that will appear in 'Learnflow: Show Logs'.",
           "scope": "application"
         },
-        "rubberduck.openAI.baseUrl": {
+        "learnflow.openAI.baseUrl": {
           "type": "string",
           "default": "https://api.openai.com/v1/",
           "markdownDescription": "Specify the URL to the OpenAI API. If you are using a proxy, you can set it here.",
           "scope": "application"
         },
-        "rubberduck.model": {
+        "learnflow.model": {
           "type": "string",
           "default": "gpt-3.5-turbo",
           "enum": [
@@ -236,32 +236,32 @@
     },
     "keybindings": [
       {
-        "command": "rubberduck.startChat",
+        "command": "learnflow.startChat",
         "when": "isMac",
         "key": "Ctrl+Cmd+c"
       },
       {
-        "command": "rubberduck.startChat",
+        "command": "learnflow.startChat",
         "when": "!isMac",
         "key": "Ctrl+Alt+c"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "learnflow.editCode",
         "when": "isMac",
         "key": "Ctrl+Cmd+e"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "learnflow.editCode",
         "when": "!isMac",
         "key": "Ctrl+Alt+e"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "learnflow.generateCode",
         "when": "isMac",
         "key": "Ctrl+Cmd+g"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "learnflow.generateCode",
         "when": "!isMac",
         "key": "Ctrl+Alt+g"
       }
@@ -269,94 +269,94 @@
     "menus": {
       "view/title": [
         {
-          "command": "rubberduck.startChat",
-          "when": "view == rubberduck.chat",
+          "command": "learnflow.startChat",
+          "when": "view == learnflow.chat",
           "group": "navigation@1"
         },
         {
-          "command": "rubberduck.editCode",
-          "when": "view == rubberduck.chat",
+          "command": "learnflow.editCode",
+          "when": "view == learnflow.chat",
           "group": "navigation@2"
         },
         {
-          "command": "rubberduck.generateCode",
-          "when": "view == rubberduck.chat",
+          "command": "learnflow.generateCode",
+          "when": "view == learnflow.chat",
           "group": "navigation@3"
         },
         {
-          "command": "rubberduck.startCustomChat",
-          "when": "view == rubberduck.chat",
+          "command": "learnflow.startCustomChat",
+          "when": "view == learnflow.chat",
           "group": "navigation@6"
         },
         {
-          "command": "rubberduck.getStarted",
-          "when": "view == rubberduck.chat",
+          "command": "learnflow.getStarted",
+          "when": "view == learnflow.chat",
           "group": "navigation@9"
         }
       ],
       "touchBar": [
         {
-          "command": "rubberduck.touchBar.startChat",
-          "group": "rubberduck"
+          "command": "learnflow.touchBar.startChat",
+          "group": "learnflow"
         }
       ],
       "commandPalette": [
         {
-          "command": "rubberduck.touchBar.startChat",
+          "command": "learnflow.touchBar.startChat",
           "when": "false"
         }
       ],
       "editor/context": [
         {
-          "command": "rubberduck.startChat",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.startChat.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.startChat",
+          "group": "learnflow",
+          "when": "config.learnflow.action.startChat.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.editCode",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.editCode.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.editCode",
+          "group": "learnflow",
+          "when": "config.learnflow.action.editCode.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.explainCode",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.explainCode.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.explainCode",
+          "group": "learnflow",
+          "when": "config.learnflow.action.explainCode.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.findBugs",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.findBugs.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.findBugs",
+          "group": "learnflow",
+          "when": "config.learnflow.action.findBugs.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.generateUnitTest",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.generateUnitTest.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.generateUnitTest",
+          "group": "learnflow",
+          "when": "config.learnflow.action.generateUnitTest.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.diagnoseErrors",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.diagnoseErrors.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.diagnoseErrors",
+          "group": "learnflow",
+          "when": "config.learnflow.action.diagnoseErrors.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.startCustomChat",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.startCustomChat.showInEditorContextMenu && editorHasSelection"
+          "command": "learnflow.startCustomChat",
+          "group": "learnflow",
+          "when": "config.learnflow.action.startCustomChat.showInEditorContextMenu && editorHasSelection"
         }
       ]
     },
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "rubberduck",
-          "title": "Rubberduck",
+          "id": "learnflow",
+          "title": "Learnflow",
           "icon": "media/sidebar-icon.svg"
         }
       ]
     },
     "views": {
-      "rubberduck": [
+      "learnflow": [
         {
-          "id": "rubberduck.chat",
+          "id": "learnflow.chat",
           "name": "Chat",
           "type": "webview"
         }
@@ -364,14 +364,14 @@
     },
     "walkthroughs": [
       {
-        "id": "rubberduck",
-        "title": "Rubberduck",
+        "id": "learnflow",
+        "title": "Learnflow",
         "description": "Your AI Chat Assistant in Visual Studio Code",
         "steps": [
           {
             "id": "setup",
-            "title": "Setup Rubberduck",
-            "description": "[Enter your OpenAI API key](command:rubberduck.enterOpenAIApiKey) to get started.",
+            "title": "Setup Learnflow",
+            "description": "[Enter your OpenAI API key](command:learnflow.enterOpenAIApiKey) to get started.",
             "media": {
               "markdown": "walkthrough/setup.md"
             }
@@ -379,7 +379,7 @@
           {
             "id": "chat",
             "title": "AI Chat",
-            "description": "Chat with Rubberduck about your code and software development topics.",
+            "description": "Chat with Learnflow about your code and software development topics.",
             "media": {
               "markdown": "walkthrough/chat.md"
             }
@@ -387,7 +387,7 @@
           {
             "id": "generate-code",
             "title": "Generate Code",
-            "description": "Generate code by instructing Rubberduck.",
+            "description": "Generate code by instructing Learnflow.",
             "media": {
               "markdown": "walkthrough/generate-code.md"
             }
@@ -395,7 +395,7 @@
           {
             "id": "edit-code",
             "title": "Edit Code",
-            "description": "Change the selected code by instructing Rubberduck to create an edit.",
+            "description": "Change the selected code by instructing Learnflow to create an edit.",
             "media": {
               "markdown": "walkthrough/edit-code.md"
             }
@@ -409,17 +409,17 @@
             }
           },
           {
-            "id": "rubberduck-templates",
-            "title": "Rubberduck Templates",
+            "id": "learnflow-templates",
+            "title": "Learnflow Templates",
             "description": "Craft your own chat templates!",
             "media": {
-              "markdown": "walkthrough/rubberduck-templates.md"
+              "markdown": "walkthrough/learnflow-templates.md"
             }
           },
           {
             "id": "tips-and-tricks",
             "title": "Tips and Tricks",
-            "description": "How to get the most out of Rubberduck.",
+            "description": "How to get the most out of Learnflow.",
             "media": {
               "markdown": "walkthrough/tips-and-tricks.md"
             }
@@ -427,7 +427,7 @@
           {
             "id": "project",
             "title": "Project",
-            "description": "Learn more about the Rubberduck open source project.",
+            "description": "Learn more about the Learnflow open source project.",
             "media": {
               "markdown": "walkthrough/project.md"
             }

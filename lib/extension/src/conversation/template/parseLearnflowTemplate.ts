@@ -1,20 +1,20 @@
 import { marked } from "marked";
 import secureJSON from "secure-json-parse";
 import {
-  RubberduckTemplate,
-  rubberduckTemplateSchema,
+  LearnflowTemplate,
+  learnflowTemplateSchema,
   Prompt,
-} from "./RubberduckTemplate";
+} from "./LearnflowTemplate";
 
-export type RubberduckTemplateParseResult =
+export type LearnflowTemplateParseResult =
   | {
-      type: "success";
-      template: RubberduckTemplate;
-    }
+    type: "success";
+    template: LearnflowTemplate;
+  }
   | {
-      type: "error";
-      error: unknown;
-    };
+    type: "error";
+    error: unknown;
+  };
 
 class NamedCodeSnippetMap {
   private readonly contentByLangInfo = new Map<string, string>();
@@ -60,10 +60,10 @@ export const extractNamedCodeSnippets = (
   return codeSnippets;
 };
 
-export function parseRubberduckTemplateOrThrow(
+export function parseLearnflowTemplateOrThrow(
   templateAsRdtMarkdown: string
-): RubberduckTemplate {
-  const parseResult = parseRubberduckTemplate(templateAsRdtMarkdown);
+): LearnflowTemplate {
+  const parseResult = parseLearnflowTemplate(templateAsRdtMarkdown);
 
   if (parseResult.type === "error") {
     throw parseResult.error;
@@ -72,15 +72,15 @@ export function parseRubberduckTemplateOrThrow(
   return parseResult.template;
 }
 
-export function parseRubberduckTemplate(
+export function parseLearnflowTemplate(
   templateAsRdtMarkdown: string
-): RubberduckTemplateParseResult {
+): LearnflowTemplateParseResult {
   try {
     const namedCodeSnippets = extractNamedCodeSnippets(templateAsRdtMarkdown);
 
     const templateText = namedCodeSnippets.get("json conversation-template");
 
-    const template = rubberduckTemplateSchema.parse(
+    const template = learnflowTemplateSchema.parse(
       secureJSON.parse(templateText)
     );
 
@@ -95,7 +95,7 @@ export function parseRubberduckTemplate(
 
     return {
       type: "success",
-      template: template as RubberduckTemplate,
+      template: template as LearnflowTemplate,
     };
   } catch (error) {
     return {

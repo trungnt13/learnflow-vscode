@@ -3,38 +3,38 @@ import { DiffEditorManager } from "../diff/DiffEditorManager";
 import { OpenAIClient } from "../openai/OpenAIClient";
 import { Conversation } from "./Conversation";
 import { DiffData } from "./DiffData";
-import { RubberduckTemplate } from "./template/RubberduckTemplate";
+import { LearnflowTemplate } from "./template/LearnflowTemplate";
 
 export type CreateConversationResult =
   | {
-      type: "success";
-      conversation: Conversation;
-      shouldImmediatelyAnswer: boolean;
-    }
+    type: "success";
+    conversation: Conversation;
+    shouldImmediatelyAnswer: boolean;
+  }
   | {
-      type: "unavailable";
-      display?: undefined;
-    }
+    type: "unavailable";
+    display?: undefined;
+  }
   | {
-      type: "unavailable";
-      display: "info" | "error";
-      message: string;
-    };
+    type: "unavailable";
+    display: "info" | "error";
+    message: string;
+  };
 
 export class ConversationType {
   readonly id: string;
   readonly label: string;
   readonly description: string;
   readonly source: "built-in" | "local-workspace" | "extension";
-  readonly variables: RubberduckTemplate["variables"];
+  readonly variables: LearnflowTemplate["variables"];
 
-  private template: RubberduckTemplate;
+  private template: LearnflowTemplate;
 
   constructor({
     template,
     source,
   }: {
-    template: RubberduckTemplate;
+    template: LearnflowTemplate;
     source: ConversationType["source"];
   }) {
     this.template = template;
@@ -46,7 +46,7 @@ export class ConversationType {
     this.variables = template.variables;
   }
 
-  get tags(): RubberduckTemplate["tags"] {
+  get tags(): LearnflowTemplate["tags"] {
     return this.template.tags;
   }
 
@@ -82,7 +82,7 @@ export class ConversationType {
     const template = this.template;
     return (
       template.initialMessage?.completionHandler?.type ===
-        "active-editor-diff" ||
+      "active-editor-diff" ||
       template.response.completionHandler?.type === "active-editor-diff"
     );
   }

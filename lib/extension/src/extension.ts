@@ -14,16 +14,16 @@ export const activate = async (context: vscode.ExtensionContext) => {
     secretStorage: context.secrets,
   });
 
-  const mainOutputChannel = vscode.window.createOutputChannel("Rubberduck");
+  const mainOutputChannel = vscode.window.createOutputChannel("Learnflow");
   const indexOutputChannel =
-    vscode.window.createOutputChannel("Rubberduck Index");
+    vscode.window.createOutputChannel("Learnflow Index");
 
   const vscodeLogger = new LoggerUsingVSCodeOutput({
     outputChannel: mainOutputChannel,
     level: getVSCodeLogLevel(),
   });
   vscode.workspace.onDidChangeConfiguration((event) => {
-    if (event.affectsConfiguration("rubberduck.logger.level")) {
+    if (event.affectsConfiguration("learnflow.logger.level")) {
       vscodeLogger.setLevel(getVSCodeLogLevel());
     }
   });
@@ -50,7 +50,7 @@ export const activate = async (context: vscode.ExtensionContext) => {
   });
 
   vscode.workspace.onDidChangeConfiguration((event) => {
-    if (event.affectsConfiguration("rubberduck.openAI.baseUrl")) {
+    if (event.affectsConfiguration("learnflow.openAI.baseUrl")) {
       openAIClient.setOpenAIBaseUrl(getVSCodeOpenAIBaseUrl());
     }
   });
@@ -73,13 +73,13 @@ export const activate = async (context: vscode.ExtensionContext) => {
   );
 
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider("rubberduck.chat", chatPanel),
+    vscode.window.registerWebviewViewProvider("learnflow.chat", chatPanel),
     vscode.commands.registerCommand(
-      "rubberduck.enterOpenAIApiKey",
+      "learnflow.enterOpenAIApiKey",
       apiKeyManager.enterOpenAIApiKey.bind(apiKeyManager)
     ),
     vscode.commands.registerCommand(
-      "rubberduck.clearOpenAIApiKey",
+      "learnflow.clearOpenAIApiKey",
       async () => {
         await apiKeyManager.clearOpenAIApiKey();
         vscode.window.showInformationMessage("OpenAI API key cleared.");
@@ -87,32 +87,32 @@ export const activate = async (context: vscode.ExtensionContext) => {
     ),
 
     vscode.commands.registerCommand(
-      "rubberduck.startConversation",
+      "learnflow.startConversation",
       (templateId) => chatController.createConversation(templateId)
     ),
 
-    vscode.commands.registerCommand("rubberduck.diagnoseErrors", () => {
+    vscode.commands.registerCommand("learnflow.diagnoseErrors", () => {
       chatController.createConversation("diagnose-errors");
     }),
-    vscode.commands.registerCommand("rubberduck.explainCode", () => {
+    vscode.commands.registerCommand("learnflow.explainCode", () => {
       chatController.createConversation("explain-code");
     }),
-    vscode.commands.registerCommand("rubberduck.findBugs", () => {
+    vscode.commands.registerCommand("learnflow.findBugs", () => {
       chatController.createConversation("find-bugs");
     }),
-    vscode.commands.registerCommand("rubberduck.generateCode", () => {
+    vscode.commands.registerCommand("learnflow.generateCode", () => {
       chatController.createConversation("generate-code");
     }),
-    vscode.commands.registerCommand("rubberduck.generateUnitTest", () => {
+    vscode.commands.registerCommand("learnflow.generateUnitTest", () => {
       chatController.createConversation("generate-unit-test");
     }),
-    vscode.commands.registerCommand("rubberduck.startChat", () => {
+    vscode.commands.registerCommand("learnflow.startChat", () => {
       chatController.createConversation("chat-en");
     }),
-    vscode.commands.registerCommand("rubberduck.editCode", () => {
+    vscode.commands.registerCommand("learnflow.editCode", () => {
       chatController.createConversation("edit-code");
     }),
-    vscode.commands.registerCommand("rubberduck.startCustomChat", async () => {
+    vscode.commands.registerCommand("learnflow.startCustomChat", async () => {
       const items = conversationTypesProvider
         .getConversationTypes()
         .map((conversationType) => ({
@@ -140,27 +140,27 @@ export const activate = async (context: vscode.ExtensionContext) => {
 
       await chatController.createConversation(result.id);
     }),
-    vscode.commands.registerCommand("rubberduck.touchBar.startChat", () => {
+    vscode.commands.registerCommand("learnflow.touchBar.startChat", () => {
       chatController.createConversation("chat-en");
     }),
-    vscode.commands.registerCommand("rubberduck.showChatPanel", async () => {
+    vscode.commands.registerCommand("learnflow.showChatPanel", async () => {
       await chatController.showChatPanel();
     }),
-    vscode.commands.registerCommand("rubberduck.getStarted", async () => {
+    vscode.commands.registerCommand("learnflow.getStarted", async () => {
       await vscode.commands.executeCommand("workbench.action.openWalkthrough", {
-        category: `rubberduck.rubberduck-vscode#rubberduck`,
+        category: `learnflow.learnflow-vscode#learnflow`,
       });
     }),
-    vscode.commands.registerCommand("rubberduck.reloadTemplates", async () => {
+    vscode.commands.registerCommand("learnflow.reloadTemplates", async () => {
       await conversationTypesProvider.loadConversationTypes();
-      vscode.window.showInformationMessage("Rubberduck templates reloaded.");
+      vscode.window.showInformationMessage("Learnflow templates reloaded.");
     }),
 
-    vscode.commands.registerCommand("rubberduck.showLogs", () => {
+    vscode.commands.registerCommand("learnflow.showLogs", () => {
       mainOutputChannel.show(true);
     }),
 
-    vscode.commands.registerCommand("rubberduck.indexRepository", () => {
+    vscode.commands.registerCommand("learnflow.indexRepository", () => {
       indexRepository({
         openAIClient,
         outputChannel: indexOutputChannel,

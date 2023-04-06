@@ -1,4 +1,4 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@learnflow/common";
 import Handlebars from "handlebars";
 import * as vscode from "vscode";
 import zod from "zod";
@@ -8,7 +8,7 @@ import { OpenAIClient } from "../openai/OpenAIClient";
 import { DiffData } from "./DiffData";
 import { resolveVariables } from "./input/resolveVariables";
 import { executeRetrievalAugmentation } from "./retrieval-augmentation/executeRetrievalAugmentation";
-import { Prompt, RubberduckTemplate } from "./template/RubberduckTemplate";
+import { Prompt, LearnflowTemplate } from "./template/LearnflowTemplate";
 
 Handlebars.registerHelper({
   eq: (v1, v2) => v1 === v2,
@@ -29,7 +29,7 @@ export class Conversation {
 
   protected readonly initVariables: Record<string, unknown>;
 
-  private readonly template: RubberduckTemplate;
+  private readonly template: LearnflowTemplate;
 
   private temporaryEditorContent: string | undefined;
   private temporaryEditorDocument: vscode.TextDocument | undefined;
@@ -53,7 +53,7 @@ export class Conversation {
     initVariables: Record<string, unknown>;
     openAIClient: OpenAIClient;
     updateChatPanel: () => Promise<void>;
-    template: RubberduckTemplate;
+    template: LearnflowTemplate;
     diffEditorManager: DiffEditorManager;
     diffData: DiffData | undefined;
   }) {
@@ -71,9 +71,9 @@ export class Conversation {
       template.initialMessage == null
         ? { type: "userCanReply" }
         : {
-            type: "waitingForBotAnswer",
-            botAction: template.initialMessage.placeholder ?? "Answering",
-          };
+          type: "waitingForBotAnswer",
+          botAction: template.initialMessage.placeholder ?? "Answering",
+        };
   }
 
   async getTitle() {
@@ -172,10 +172,10 @@ export class Conversation {
           });
       }
 
-      // retrieve vscode setting rubberduck.model
+      // retrieve vscode setting learnflow.model
       const model = zod
         .enum(["gpt-4", "gpt-3.5-turbo"])
-        .parse(vscode.workspace.getConfiguration("rubberduck").get("model"));
+        .parse(vscode.workspace.getConfiguration("learnflow").get("model"));
 
       const completion = await this.openAIClient.generateChatCompletion({
         messages: [
@@ -427,7 +427,7 @@ export class Conversation {
       const tab = allTabs.find((tab) => {
         return (
           (tab.input as any).viewType ===
-          `mainThreadWebview-rubberduck.diff.${this.id}`
+          `mainThreadWebview-learnflow.diff.${this.id}`
         );
       });
 
@@ -512,19 +512,19 @@ export class Conversation {
       content:
         chatInterface === "message-exchange"
           ? {
-              type: "messageExchange",
-              messages: this.isTitleMessage()
-                ? this.messages.slice(1)
-                : this.messages,
-              state: this.state,
-              error: this.error,
-            }
+            type: "messageExchange",
+            messages: this.isTitleMessage()
+              ? this.messages.slice(1)
+              : this.messages,
+            state: this.state,
+            error: this.error,
+          }
           : {
-              type: "instructionRefinement",
-              instruction: "", // TODO last user message?
-              state: this.refinementInstructionState(),
-              error: this.error,
-            },
+            type: "instructionRefinement",
+            instruction: "", // TODO last user message?
+            state: this.refinementInstructionState(),
+            error: this.error,
+          },
     };
   }
 

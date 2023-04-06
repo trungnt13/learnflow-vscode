@@ -1,5 +1,5 @@
-import { webviewApi } from "@rubberduck/common";
-import { Variable } from "../template/RubberduckTemplate";
+import { webviewApi } from "@learnflow/common";
+import { Variable } from "../template/LearnflowTemplate";
 import { resolveVariable } from "./resolveVariable";
 import { validateVariable } from "./validateVariable";
 

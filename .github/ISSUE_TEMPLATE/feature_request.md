@@ -1,12 +1,12 @@
 ---
 name: ✨ Feature request
-about: Suggest a new idea of what Rubberduck could do
+about: Suggest a new idea of what Learnflow could do
 title: ""
 labels: "enhancement"
 assignees: ""
 ---
 
-## Is this request related to a problem? Please describe.
+## Is this request related to a problem? Please describe
 
 _A clear and concise description of what the problem is (e.g. "I'm always frustrated when […]")._
 

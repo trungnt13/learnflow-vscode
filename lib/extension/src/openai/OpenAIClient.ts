@@ -8,7 +8,7 @@ import { ApiKeyManager } from "./ApiKeyManager";
 
 export function getVSCodeOpenAIBaseUrl(): string {
   return vscode.workspace
-    .getConfiguration("rubberduck.openAI")
+    .getConfiguration("learnflow.openAI")
     .get("baseUrl", "https://api.openai.com/v1/");
 }
 
@@ -97,13 +97,13 @@ export class OpenAIClient {
     streamHandler: (stream: string) => void;
   }): Promise<
     | {
-        type: "success";
-        content: string;
-      }
+      type: "success";
+      content: string;
+    }
     | {
-        type: "error";
-        errorMessage: string;
-      }
+      type: "error";
+      errorMessage: string;
+    }
   > {
     this.logger.log([
       "--- Start OpenAI prompt ---",
@@ -120,7 +120,7 @@ export class OpenAIClient {
         return {
           type: "error",
           errorMessage:
-            "No OpenAI API key found. Please enter your OpenAI API key with the 'Rubberduck: Enter OpenAI API key' command.",
+            "No OpenAI API key found. Please enter your OpenAI API key with the 'Learnflow: Enter OpenAI API key' command.",
         };
       }
 
@@ -271,7 +271,7 @@ export class OpenAIClient {
         return {
           type: "error" as const,
           errorMessage:
-            "No OpenAI API key found. Please enter your OpenAI API key with the 'Rubberduck: Enter OpenAI API key' command.",
+            "No OpenAI API key found. Please enter your OpenAI API key with the 'Learnflow: Enter OpenAI API key' command.",
         };
       }
       const response = await axios.post(

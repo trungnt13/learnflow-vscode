@@ -36,11 +36,11 @@ importers:
 
   app/vscode:
     specifiers:
-      '@rubberduck/extension': '*'
-      '@rubberduck/webview': '*'
+      '@learnflow/extension': '*'
+      '@learnflow/webview': '*'
     dependencies:
-      '@rubberduck/extension': link:../../lib/extension
-      '@rubberduck/webview': link:../../lib/webview
+      '@learnflow/extension': link:../../lib/extension
+      '@learnflow/webview': link:../../lib/webview
 
   lib/common:
     specifiers:
@@ -50,7 +50,7 @@ importers:
 
   lib/extension:
     specifiers:
-      '@rubberduck/common': '*'
+      '@learnflow/common': '*'
       '@types/handlebars': 4.1.0
       '@types/marked': 4.0.8
       '@types/vscode': 1.72.0
@@ -61,7 +61,7 @@ importers:
       simple-git: 3.16.1
       zod: 3.20.2
     dependencies:
-      '@rubberduck/common': link:../common
+      '@learnflow/common': link:../common
       axios: 1.2.4
       handlebars: 4.7.7
       marked: 4.2.12
@@ -75,7 +75,7 @@ importers:
 
   lib/webview:
     specifiers:
-      '@rubberduck/common': '*'
+      '@learnflow/common': '*'
       '@types/prismjs': 1.26.0
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
@@ -88,7 +88,7 @@ importers:
       react-dom: 18.2.0
       react-markdown: 8.0.5
     dependencies:
-      '@rubberduck/common': link:../common
+      '@learnflow/common': link:../common
       prismjs: 1.29.0
       react: 18.2.0
       react-diff-viewer-continued: 3.2.5_biqbaboplfbrettd7655fr4n2y

@@ -3,7 +3,7 @@ import secureJSON from "secure-json-parse";
 import * as vscode from "vscode";
 import { OpenAIClient } from "../../openai/OpenAIClient";
 import { readFileContent } from "../../vscode/readFileContent";
-import { RetrievalAugmentation } from "../template/RubberduckTemplate";
+import { RetrievalAugmentation } from "../template/LearnflowTemplate";
 import { cosineSimilarity } from "./cosineSimilarity";
 import { embeddingFileSchema } from "./EmbeddingFile";
 
@@ -19,18 +19,18 @@ export async function executeRetrievalAugmentation({
   openAIClient: OpenAIClient;
 }): Promise<
   | Array<{
-      file: string;
-      startPosition: number;
-      endPosition: number;
-      content: string;
-    }>
+    file: string;
+    startPosition: number;
+    endPosition: number;
+    content: string;
+  }>
   | undefined
 > {
   const file = retrievalAugmentation.file;
 
   const fileUri = vscode.Uri.joinPath(
     vscode.workspace.workspaceFolders?.[0]?.uri ?? vscode.Uri.file(""),
-    ".rubberduck/embedding",
+    ".learnflow/embedding",
     file
   );
 

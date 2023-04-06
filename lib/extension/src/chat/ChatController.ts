@@ -1,4 +1,4 @@
-import { util, webviewApi } from "@rubberduck/common";
+import { util, webviewApi } from "@learnflow/common";
 import * as vscode from "vscode";
 import { Conversation } from "../conversation/Conversation";
 import { ConversationType } from "../conversation/ConversationType";
@@ -62,7 +62,7 @@ export class ChatController {
   }
 
   async showChatPanel() {
-    await vscode.commands.executeCommand("rubberduck.chat.focus");
+    await vscode.commands.executeCommand("learnflow.chat.focus");
   }
 
   async receivePanelMessage(rawMessage: unknown) {
@@ -71,7 +71,7 @@ export class ChatController {
 
     switch (type) {
       case "enterOpenAIApiKey": {
-        await vscode.commands.executeCommand("rubberduck.enterOpenAIApiKey");
+        await vscode.commands.executeCommand("learnflow.enterOpenAIApiKey");
         break;
       }
       case "clickCollapsedConversation": {
